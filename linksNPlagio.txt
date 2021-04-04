@@ -1,0 +1,7 @@
+LINKS
+
+https://answers.unity.com/questions/1592029/how-do-you-make-enemies-rotate-to-your-position-in.html
+
+https://www.youtube.com/watch?v=rhoQd6IAtDo
+
+https://www.codegrepper.com/code-examples/csharp/how+to+randomly+spawn+objects+in+unity+2d
