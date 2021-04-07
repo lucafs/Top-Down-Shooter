@@ -8,12 +8,39 @@ public class Atirar : MonoBehaviour
     public GameObject tiroPrefab;
 
     public float bulletForce = 20f;
+    public int Bullets = 5;
+
+    private float counter;
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        counter += Time.deltaTime;
+
         if(Input.GetButtonDown("Fire1")){
-            Shoot();
+            if (Bullets <= 0)
+            {
+                animator.SetInteger("Reloading", 1);
+
+                if (counter > 1)
+                {
+                    Bullets = 5;
+                }
+    
+            }
+            else
+            {
+                animator.SetInteger("Reloading", 0);
+                Bullets -= 1;
+                Shoot();
+            }
+            
         }
         
     }

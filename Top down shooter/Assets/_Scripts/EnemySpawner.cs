@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour
 {
 
     public GameObject enemy;
-    private int vida;
     private int timeStamp;
     private float contadorSegundos = 0;
     private int difCount = 0;
@@ -16,7 +15,6 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
-        vida = playerScript.vida;
         timeStamp = 25;
 
         spawnEnemies(20);

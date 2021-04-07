@@ -7,14 +7,17 @@ public class Enemy : MonoBehaviour
     public float velocidade;
     public Rigidbody2D rb;
     private Transform alvo;
-    public GameObject Blood;
+    public Vector2 positionZ;
+    public int dead = 0;
+
+    public float counterBlood = 0.0f;
+    public GameObject bloodObject;
 
     // Start is called before the first frame update
     void Start()
     {
         alvo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -41,7 +44,11 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
-            Instantiate(Blood, transform.position, Quaternion.identity);
+
+            GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
+            
+            
         }
     }
+        
 }

@@ -10,7 +10,13 @@ public class MovimentoPlayer : MonoBehaviour
     Vector2 movimento;
     Vector2 mousePos;
     Vector2 lookDir;
+
+    Animator animator;
     // public Camera cam; 
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
