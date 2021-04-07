@@ -7,12 +7,14 @@ public class Enemy : MonoBehaviour
     public float velocidade;
     public Rigidbody2D rb;
     private Transform alvo;
+    public GameObject Blood;
 
     // Start is called before the first frame update
     void Start()
     {
         alvo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
-            Debug.Log("hit");
+            Instantiate(Blood, transform.position, Quaternion.identity);
         }
     }
 }

@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 15
   rb: {fileID: 0}
+  Blood: {fileID: 8928298339584796492, guid: 47c07c96b04246a4c93e3f4a102b9f39, type: 3}
 --- !u!58 &7631699485825115409
 CircleCollider2D:
   m_ObjectHideFlags: 0
