@@ -6,12 +6,18 @@ public class Atirar : MonoBehaviour
 {
     public Transform arma;
     public GameObject tiroPrefab;
+    GameManager gm;
 
     public float bulletForce = 20f;
+    void Start(){
+        gm = GameManager.GetInstance();
 
+    }
     // Update is called once per frame
     void Update()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         if(Input.GetButtonDown("Fire1")){
             Shoot();
         }

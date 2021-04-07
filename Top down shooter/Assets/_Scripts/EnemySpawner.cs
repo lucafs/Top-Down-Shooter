@@ -10,10 +10,12 @@ public class EnemySpawner : MonoBehaviour
     private int timeStamp;
     private float contadorSegundos = 0;
     private int difCount = 0;
+    GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameManager.GetInstance();
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
         vida = playerScript.vida;
@@ -37,6 +39,8 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         contadorSegundos += Time.deltaTime;
 
         if (contadorSegundos >= 1)

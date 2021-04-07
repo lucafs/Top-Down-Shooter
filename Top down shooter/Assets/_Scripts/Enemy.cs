@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     private Transform alvo;
     public GameObject Blood;
+    GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameManager.GetInstance();
         alvo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -20,6 +22,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         if(Vector2.Distance(transform.position, alvo.position) > 0.5)
         {
             rb.MovePosition(transform.position + transform.up * velocidade * Time.deltaTime);
@@ -29,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     private void RotateTowards(Vector2 alvo)
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
         var offset = 90f;
         Vector2 direction = alvo - (Vector2)transform.position;
         direction.Normalize();
