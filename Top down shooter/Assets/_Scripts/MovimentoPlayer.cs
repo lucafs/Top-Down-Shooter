@@ -18,8 +18,6 @@ public class MovimentoPlayer : MonoBehaviour
         movimento.x = Input.GetAxisRaw("Horizontal");
         movimento.y = Input.GetAxisRaw("Vertical");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        
     }
     
     void FixedUpdate(){

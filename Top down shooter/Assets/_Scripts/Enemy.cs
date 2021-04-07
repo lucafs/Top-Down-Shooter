@@ -5,12 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float velocidade;
-
+    public Rigidbody2D rb;
     private Transform alvo;
+
     // Start is called before the first frame update
     void Start()
     {
         alvo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class Enemy : MonoBehaviour
     {
         if(Vector2.Distance(transform.position, alvo.position) > 0.5)
         {
-            transform.position = Vector2.MoveTowards(transform.position, alvo.position, velocidade * Time.deltaTime);
+            rb.MovePosition(transform.position + transform.up * velocidade * Time.deltaTime);
             RotateTowards(alvo.position);
         }
     }
