@@ -9,6 +9,9 @@ public class GameManager
     public int vidas;
     public int pontos;
     public int hordes;
+    public int reset = 0;
+    public Vector2 spawn;
+    public int difCount;
     private static GameManager _instance;
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;
@@ -24,23 +27,26 @@ public class GameManager
     }
     private GameManager()
     {
+        difCount = 0;
         vidas = 3;
         pontos = 0;
         hordes = 0;
-        gameState = GameState.GAME;
+        gameState = GameState.MENU;
     }
 
     public void ChangeState(GameState nextState)
     {
-        if (nextState == GameState.GAME)
+        if (nextState == GameState.GAME && gameState!= GameState.PAUSE)
         {
             Reset();
         }
         gameState = nextState;
         changeStateDelegate();
     }
-    private void Reset()
-    {
+    public void Reset()
+    { 
+        reset = 1;
+        difCount = 0;
         vidas = 3;
         hordes = 0;
         pontos = 0;

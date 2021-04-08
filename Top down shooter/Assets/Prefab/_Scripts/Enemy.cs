@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
         {
             gm.pontos += 1;
             Destroy(gameObject);
-
             GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
             
             

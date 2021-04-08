@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
     public Transform barreiras;
     private int timeStamp;
     private float contadorSegundos = 0;
-    private int difCount = 0;
     private int countBoss = 0;
     float spawnYindex;
     float spawnXindex;
@@ -24,16 +23,12 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         foreach (Transform child in barreiras)
         {
-            if (child.position.x < minorX) minorX = child.position.x;
-            if (child.position.x < minorY) minorY = child.position.x;
-            if (child.position.x < majorX) majorX = child.position.x;
-            if (child.position.x < majorY) majorY = child.position.x;
-            Debug.Log("min X" + minorX);
-            Debug.Log("min y" + minorY);
+            if (child.position.x < minorX) minorX = child.position.x - 5f;
+            if (child.position.x < minorY) minorY = child.position.x- 5f;
+            if (child.position.x < majorX) majorX = child.position.x+ 5f;
+            if (child.position.x < majorY) majorY = child.position.x+ 5f;
 
         }
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
@@ -41,13 +36,14 @@ public class EnemySpawner : MonoBehaviour
         gm = GameManager.GetInstance();
         timeStamp = 25;
 
-        spawnEnemies(20);
+        spawnEnemies(15);
     }
 
     void spawnEnemies(int loopCount)
     {
         for (int i = 0; i < loopCount; i++)
         {
+
             spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
             spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
             while (spawnYindex <= minorY && spawnYindex >= majorY && spawnXindex <= minorX && spawnXindex >= majorX)
@@ -82,32 +78,37 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         if (gm.gameState != GameManager.GameState.GAME) return;
+        if (gm.reset == 1 )
+        {
+            spawnEnemies(15);
+            timeStamp = 25;
+            gm.reset++;
 
+        }
         contadorSegundos += Time.deltaTime;
 
         if (contadorSegundos >= 1)
         {
             new WaitForSeconds(1);
-            //Debug.Log(timeStamp);
             timeStamp -= 1;
 
-            if (timeStamp == 0 && difCount == 0)
+            if (timeStamp == 0 && gm.difCount == 0)
             {
-                difCount = 1;
+                gm.difCount = 1;
                 timeStamp = 20;
                 gm.hordes += 1;
                 spawnEnemies(10);
             }
-            if (timeStamp == 0 && difCount == 1)
+            if (timeStamp == 0 && gm.difCount == 1)
             {
-                difCount = 2;
+                gm.difCount = 2;
                 timeStamp = 15;
                 gm.hordes += 1;
                 spawnEnemies(15);
             }
-            if (timeStamp == 0 && difCount == 2)
+            if (timeStamp == 0 && gm.difCount == 2)
             {
-                difCount = 0;
+                gm.difCount = 0;
                 timeStamp = 10;
                 gm.hordes += 1;
                 countBoss += 1;
