@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    GameManager gm;
 
     public GameObject enemy;
     private int timeStamp;
@@ -15,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
+        gm = GameManager.GetInstance();
         timeStamp = 25;
 
         spawnEnemies(20);
@@ -35,12 +37,14 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         contadorSegundos += Time.deltaTime;
 
         if (contadorSegundos >= 1)
         {
             new WaitForSeconds(1);
-            Debug.Log(timeStamp);
+            //Debug.Log(timeStamp);
             timeStamp -= 1;
             
             if (timeStamp == 0 && difCount == 0)
