@@ -55,20 +55,7 @@ public class Atirar : MonoBehaviour
         GameObject tiro = Instantiate(tiroPrefab , arma.position,arma.rotation);
         Rigidbody2D rb= tiro.GetComponent<Rigidbody2D>();
         rb.AddForce(-arma.up * bulletForce, ForceMode2D.Impulse);
-<<<<<<< HEAD
         AudioManager.PlaySFX(shootSFX);
-        
-=======
-
-        StartCoroutine(waiter());
-    }
-    
-    IEnumerator waiter()
-    {
-        // Debug.Log(Time.time);
-        yield return new WaitForSeconds(1f);
-        // Debug.Log(Time.time);
->>>>>>> 9695f351b295b4309c0d6af37d9104d949e97540
     }
 
 }
