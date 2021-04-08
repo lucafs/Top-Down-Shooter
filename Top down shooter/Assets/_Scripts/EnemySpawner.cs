@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
     private float contadorSegundos = 0;
     private int difCount = 0;
     private int countBoss = 0;
-    private int hordes = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -66,21 +65,21 @@ public class EnemySpawner : MonoBehaviour
             {
                 difCount = 1;
                 timeStamp = 20;
-                hordes += 1;
+                gm.hordes += 1;
                 spawnEnemies(10);
             }
             if (timeStamp == 0 && difCount == 1)
             {
                 difCount = 2;
                 timeStamp = 15;
-                hordes += 1;
+                gm.hordes += 1;
                 spawnEnemies(15);
             }
             if (timeStamp == 0 && difCount == 2)
             {
                 difCount = 0;
                 timeStamp = 10;
-                hordes += 1;
+                gm.hordes += 1;
                 countBoss += 1;
                 spawnEnemies(20);
                 spawnBoss(countBoss);

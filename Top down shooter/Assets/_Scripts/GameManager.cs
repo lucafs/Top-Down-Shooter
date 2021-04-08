@@ -8,9 +8,11 @@ public class GameManager
     public GameState gameState { get; private set; }
     public int vidas;
     public int pontos;
+    public int hordes;
     private static GameManager _instance;
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;
+
     public static GameManager GetInstance()
     {
         if (_instance == null)
@@ -24,6 +26,7 @@ public class GameManager
     {
         vidas = 3;
         pontos = 0;
+        hordes = 0;
         gameState = GameState.GAME;
     }
 
@@ -39,6 +42,7 @@ public class GameManager
     private void Reset()
     {
         vidas = 3;
+        hordes = 0;
         pontos = 0;
     }
 }
