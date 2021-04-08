@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour
 {
     GameManager gm;
     Vector2 posicaoDeSpawn;
-
     public GameObject enemy;
     public GameObject Boss;
     public Transform barreiras;
@@ -25,12 +24,10 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (Transform child in barreiras)
         {
-            if (child.position.x < minorX) minorX = child.position.x - 5f;
-            if (child.position.x < minorY) minorY = child.position.x- 5f;
-            if (child.position.x < majorX) majorX = child.position.x+ 5f;
-            if (child.position.x < majorY) majorY = child.position.x+ 5f;
-
-
+            if (child.position.x < minorX) minorX = child.position.x ;
+            if (child.position.x < minorY) minorY = child.position.x;
+            if (child.position.x < majorX) majorX = child.position.x;
+            if (child.position.x < majorY) majorY = child.position.x;
         }
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
@@ -74,6 +71,7 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(Boss, posicaoDeSpawn, Quaternion.identity);
         }
     }
+
 
     // Update is called once per frame
     void Update()

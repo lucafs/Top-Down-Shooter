@@ -11,9 +11,10 @@ public class Enemy : MonoBehaviour
     private Transform alvo;
     public Vector2 positionZ;
     public int dead = 0;
-
+    public int random;
     public float counterBlood = 0.0f;
     public GameObject bloodObject;
+    public GameObject heart;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,12 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            random = Random.Range(0,100);
+            Debug.Log(random + " random number");
+
+            if(random < 10){
+                GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);
+            }
             gm.pontos += 1;
             Destroy(gameObject);
             GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);

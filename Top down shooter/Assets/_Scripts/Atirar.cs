@@ -62,9 +62,9 @@ public class Atirar : MonoBehaviour
     
     IEnumerator waiter()
     {
-        Debug.Log(Time.time);
+        // Debug.Log(Time.time);
         yield return new WaitForSeconds(1f);
-        Debug.Log(Time.time);
+        // Debug.Log(Time.time);
     }
 
 }
