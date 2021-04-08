@@ -1876,7 +1876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TITULO DO JAMES
+  m_Text: SHOOT ZOMBIES
 --- !u!222 &196387612
 CanvasRenderer:
   m_ObjectHideFlags: 0
