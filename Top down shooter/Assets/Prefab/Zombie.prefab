@@ -153,9 +153,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   positionZ: {x: 0, y: 0}
   dead: 0
+  random: 0
   counterBlood: 0
   bloodObject: {fileID: 1767124490877955504, guid: f3e7adb689ef3e141b5ff20fd1d513cf,
     type: 3}
+  heart: {fileID: 4157827940727502423, guid: e5fc95b2b434cd345adb6011b19546a9, type: 3}
 --- !u!58 &7631699485825115409
 CircleCollider2D:
   m_ObjectHideFlags: 0
