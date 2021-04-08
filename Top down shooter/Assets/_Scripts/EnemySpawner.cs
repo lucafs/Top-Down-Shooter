@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
             if (child.position.x < majorX) majorX = child.position.x+ 5f;
             if (child.position.x < majorY) majorY = child.position.x+ 5f;
 
+
         }
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
