@@ -6,7 +6,7 @@ public class MovimentoPlayer : MonoBehaviour
 {
     GameManager gm;
 
-    public float velocidade = 5f;
+    public float velocidade = 7f;
     public Rigidbody2D rb;
     public int vida = 3;
     Vector2 movimento;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     GameManager gm;
 
@@ -10,10 +10,10 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     private Transform alvo;
     public Vector2 positionZ;
-    public int dead = 0;
-
-    public float counterBlood = 0.0f;
     public GameObject bloodObject;
+    Animator animator;
+
+    private int vidaBoss = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
         alvo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         gm = GameManager.GetInstance();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -29,9 +30,18 @@ public class Enemy : MonoBehaviour
     {
         if (gm.gameState != GameManager.GameState.GAME) return;
 
-        if (Vector2.Distance(transform.position, alvo.position) > 0.5)
+        if (Vector2.Distance(transform.position, alvo.position) > 9)
         {
-            rb.MovePosition(transform.position + transform.up * velocidade * Time.deltaTime);
+            Debug.Log(Vector2.Distance(transform.position, alvo.position));
+            animator.SetInteger("Atking", 0);
+            rb.MovePosition(transform.position - transform.up * velocidade * Time.deltaTime);
+            RotateTowards(alvo.position);
+        }
+        if(Vector2.Distance(transform.position, alvo.position) < 9)
+        {
+            animator.SetInteger("Atking", 1);
+            Debug.Log(animator.GetInteger("Atking"));
+            rb.MovePosition(transform.position - transform.up * velocidade * Time.deltaTime);
             RotateTowards(alvo.position);
         }
     }
@@ -44,20 +54,22 @@ public class Enemy : MonoBehaviour
         Vector2 direction = alvo - (Vector2)transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset + 180));
+        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset + 360));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            gm.pontos += 1;
-            Destroy(gameObject);
+            vidaBoss -= 1;
+            if (vidaBoss <= 0)
+            {
+                gm.pontos += 5;
+                Destroy(gameObject);
 
-            GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
-            
-            
+                GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
+            }
         }
     }
-        
+
 }
