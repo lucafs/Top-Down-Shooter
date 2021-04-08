@@ -5,17 +5,37 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     GameManager gm;
+    Vector2 posicaoDeSpawn;
 
     public GameObject enemy;
     public GameObject Boss;
+    public Transform barreiras;
     private int timeStamp;
     private float contadorSegundos = 0;
     private int difCount = 0;
     private int countBoss = 0;
+    float spawnYindex;
+    float spawnXindex;
+    float minorX = 0f;
+    float minorY = 0f;
+    float majorX = 0f;
+    float majorY = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+
+
+        foreach (Transform child in barreiras)
+        {
+            if (child.position.x < minorX) minorX = child.position.x;
+            if (child.position.x < minorY) minorY = child.position.x;
+            if (child.position.x < majorX) majorX = child.position.x;
+            if (child.position.x < majorY) majorY = child.position.x;
+            Debug.Log("min X" + minorX);
+            Debug.Log("min y" + minorY);
+
+        }
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
         gm = GameManager.GetInstance();
@@ -26,23 +46,33 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnEnemies(int loopCount)
     {
-        for(int i = 0; i < loopCount; i++)
+        for (int i = 0; i < loopCount; i++)
         {
-            float spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
-            float spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
-
-            Vector2 posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex +10f);
+            spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+            spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            while (spawnYindex <= minorY && spawnYindex >= majorY && spawnXindex <= minorX && spawnXindex >= majorX)
+            {
+                spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+                spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            }
+            posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
             Instantiate(enemy, posicaoDeSpawn, Quaternion.identity);
+
+
         }
     }
 
     void spawnBoss(int loopCount)
     {
-        for (int i =0; i < loopCount; i++)
+        for (int i = 0; i < loopCount; i++)
         {
-            float spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
-            float spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
-
+            spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+            spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            while (spawnYindex <= minorY && spawnYindex >= majorY && spawnXindex <= minorX && spawnXindex >= majorX)
+            {
+                spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+                spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            }
             Vector2 posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
             Instantiate(Boss, posicaoDeSpawn, Quaternion.identity);
         }
@@ -60,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
             new WaitForSeconds(1);
             //Debug.Log(timeStamp);
             timeStamp -= 1;
-            
+
             if (timeStamp == 0 && difCount == 0)
             {
                 difCount = 1;
@@ -87,6 +117,6 @@ public class EnemySpawner : MonoBehaviour
             contadorSegundos = 0;
         }
 
-        
+
     }
 }
