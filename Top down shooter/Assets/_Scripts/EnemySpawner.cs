@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             float spawnYindex = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
             float spawnXindex = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
 
-            Vector2 posicaoDeSpawn = new Vector2(spawnXindex, spawnYindex);
+            Vector2 posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex +10f);
             Instantiate(enemy, posicaoDeSpawn, Quaternion.identity);
         }
     }

@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            gm.pontos += 1;
             Destroy(gameObject);
 
             GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
