@@ -69,11 +69,16 @@ public class MovimentoPlayer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("taking_damage"))
+            {
+                return;
+            }
             if (gm.vidas <= 0)
             {
                 gm.ChangeState(GameManager.GameState.ENDGAME);
             }
 
+            animator.SetTrigger("Damage");
             gm.vidas -= 1;
         }
     }
@@ -81,7 +86,6 @@ public class MovimentoPlayer : MonoBehaviour
    {
         if (collision.gameObject.tag == "Heart")
         {
-            Debug.Log("SAbsudaibfuaibfiasbiudasbiufb");
             Destroy(collision.gameObject);
             gm.vidas += 1;
         }
