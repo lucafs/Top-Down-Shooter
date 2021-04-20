@@ -28,7 +28,7 @@ public class GameManager
     private GameManager()
     {
         difCount = 0;
-        vidas = 3;
+        vidas = 4;
         pontos = 0;
         hordes = 0;
         gameState = GameState.MENU;
@@ -47,7 +47,7 @@ public class GameManager
     { 
         reset = 1;
         difCount = 0;
-        vidas = 3;
+        vidas = 4;
         hordes = 0;
         pontos = 0;
     }

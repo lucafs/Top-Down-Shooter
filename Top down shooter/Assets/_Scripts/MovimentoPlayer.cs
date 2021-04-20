@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MovimentoPlayer : MonoBehaviour
 {
     GameManager gm;
-
     public float velocidade = 7f;
     public Rigidbody2D rb;
     public int vida = 3;
@@ -14,6 +15,7 @@ public class MovimentoPlayer : MonoBehaviour
     Vector2 lookDir;
     public float angle;
     public Vector2 spawn;
+    public AudioClip damageSFX;
 
     Animator animator;
     // public Camera cam; 
@@ -28,8 +30,7 @@ public class MovimentoPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(gm.gameState);
-        //Pause Game
+
         if(gm.reset == 2){
             rb.MovePosition(spawn);
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
@@ -79,15 +80,20 @@ public class MovimentoPlayer : MonoBehaviour
             }
 
             animator.SetTrigger("Damage");
+            AudioManager.PlaySFX(damageSFX);
             gm.vidas -= 1;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
    {
-        if (collision.gameObject.tag == "Heart")
-        {
-            Destroy(collision.gameObject);
-            gm.vidas += 1;
+        if (collision.gameObject.tag == "Heart"){
+            if(gm.vidas == 4){
+                Debug.Log("Vidas cheias");        
+            }
+            else{
+                Destroy(collision.gameObject);
+                gm.vidas += 1;
+            }
         }
    }
 }

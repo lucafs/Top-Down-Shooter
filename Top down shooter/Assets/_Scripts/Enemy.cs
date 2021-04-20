@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             random = Random.Range(0,100);
-            Debug.Log(random + " random number");
 
             if(random < 10){
                 GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);

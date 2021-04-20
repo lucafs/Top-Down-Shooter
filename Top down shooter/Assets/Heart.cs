@@ -12,7 +12,6 @@ public class Heart : MonoBehaviour
     }
     void Update(){
     if (gm.gameState != GameManager.GameState.GAME && gm.gameState != GameManager.GameState.PAUSE ) Destroy(gameObject);
-
     }
 
 }

@@ -15,6 +15,6 @@ public class Pontos : MonoBehaviour
    
    void Update()
    {
-       textComp.text = $"Score : {gm.pontos}";
+       textComp.text = $"PONTOS : {gm.pontos}";
    }
 }
