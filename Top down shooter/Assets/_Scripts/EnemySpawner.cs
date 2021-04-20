@@ -67,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
                 spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
                 spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
             }
-            Vector2 posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
+            posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
             Instantiate(Boss, posicaoDeSpawn, Quaternion.identity);
         }
     }

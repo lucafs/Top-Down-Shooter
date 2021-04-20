@@ -11,8 +11,10 @@ public class Boss : MonoBehaviour
     private Transform alvo;
     public Vector2 positionZ;
     public GameObject bloodObject;
+    private GameObject BloodInstance;
     Animator animator;
-
+    Vector2 direction;
+    public float angle;
     private int vidaBoss = 6;
 
     // Start is called before the first frame update
@@ -51,9 +53,9 @@ public class Boss : MonoBehaviour
         if (gm.gameState != GameManager.GameState.GAME) return;
 
         var offset = 90f;
-        Vector2 direction = alvo - (Vector2)transform.position;
+        direction = alvo - (Vector2)transform.position;
         direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset + 360));
     }
 
@@ -67,7 +69,7 @@ public class Boss : MonoBehaviour
                 gm.pontos += 5;
                 Destroy(gameObject);
 
-                GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
+                BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
             }
         }
     }

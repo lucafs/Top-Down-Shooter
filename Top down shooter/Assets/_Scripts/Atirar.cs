@@ -14,7 +14,9 @@ public class Atirar : MonoBehaviour
 
     private float counter;
     Animator animator;
-
+    int reloadingValue;
+    Rigidbody2D rb;
+    GameObject tiro;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -27,7 +29,7 @@ public class Atirar : MonoBehaviour
     {
         if (gm.gameState != GameManager.GameState.GAME) return;
 
-        int reloadingValue = animator.GetInteger("Reloading");
+        reloadingValue = animator.GetInteger("Reloading");
 
         if(counter > 1 && reloadingValue == 1)
         {
@@ -52,8 +54,8 @@ public class Atirar : MonoBehaviour
     }
     
     void Shoot(){
-        GameObject tiro = Instantiate(tiroPrefab , arma.position,arma.rotation);
-        Rigidbody2D rb= tiro.GetComponent<Rigidbody2D>();
+        tiro = Instantiate(tiroPrefab , arma.position,arma.rotation);
+        rb= tiro.GetComponent<Rigidbody2D>();
         rb.AddForce(-arma.up * bulletForce, ForceMode2D.Impulse);
         AudioManager.PlaySFX(shootSFX);
     }

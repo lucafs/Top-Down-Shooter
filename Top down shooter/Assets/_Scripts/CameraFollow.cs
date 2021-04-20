@@ -6,11 +6,13 @@ public class CameraFollow : MonoBehaviour
 {
 
     public Transform alvo;
-
+    float charPosX;
+    float charPosY;
     void FixedUpdate()
     {
         
-        float charPosX = transform.position.x; float charPosY = transform.position.y;
+        charPosX = transform.position.x; 
+        charPosY = transform.position.y;
         alvo.transform.position = new Vector3(charPosX, charPosY, -10);
 
     }
