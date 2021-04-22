@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513317100522740145}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5021046591626347146}
   - component: {fileID: 6666222677895300457}
   - component: {fileID: 7631699485825115409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: zombiebasic_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee8a042c3dffba40b42281e88e2eebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 10
+  velocidade: 5
   rb: {fileID: 0}
   positionZ: {x: 0, y: 0}
   dead: 0

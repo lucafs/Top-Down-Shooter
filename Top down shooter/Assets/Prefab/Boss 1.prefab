@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2829303945249842632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boss 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4162181238787129998}
   - component: {fileID: 6373341376230268103}
   - component: {fileID: 5562635960027570534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: zombieboss_12
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -152,6 +152,7 @@ MonoBehaviour:
   positionZ: {x: 0, y: 0}
   bloodObject: {fileID: 1767124490877955504, guid: f3e7adb689ef3e141b5ff20fd1d513cf,
     type: 3}
+  angle: 0
 --- !u!50 &6373341376230268103
 Rigidbody2D:
   serializedVersion: 4
