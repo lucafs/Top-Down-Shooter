@@ -9,6 +9,7 @@ public class GameManager
     public int vidas;
     public int pontos;
     public int hordes;
+    public int granades;
     public int reset = 0;
     public Vector2 spawn;
     public int difCount;
@@ -31,6 +32,7 @@ public class GameManager
         vidas = 4;
         pontos = 0;
         hordes = 0;
+        granades = 1;
         gameState = GameState.MENU;
     }
 
@@ -50,5 +52,6 @@ public class GameManager
         vidas = 4;
         hordes = 0;
         pontos = 0;
+        granades = 1;
     }
 }

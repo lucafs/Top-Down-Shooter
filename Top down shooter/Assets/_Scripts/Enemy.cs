@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public float counterBlood = 0.0f;
     public GameObject bloodObject;
     public GameObject heart;
+    public GameObject granade;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,9 @@ public class Enemy : MonoBehaviour
         if(random < 10){
             GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);
         }
+        if(random > 95){
+            GameObject Granade = Instantiate(granade, transform.position,Quaternion.identity);
+        }
         gm.pontos += 1;
         Destroy(gameObject);
         GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
@@ -64,8 +69,11 @@ public class Enemy : MonoBehaviour
         {
             random = Random.Range(0,100);
 
-            if(random < 10){
+            if(random < 5){
                 GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);
+            }
+            if(random > 95){
+                GameObject Granade = Instantiate(granade, transform.position,Quaternion.identity);
             }
             gm.pontos += 1;
             Destroy(gameObject);

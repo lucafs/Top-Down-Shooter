@@ -95,5 +95,9 @@ public class MovimentoPlayer : MonoBehaviour
                 gm.vidas += 1;
             }
         }
+        if (collision.gameObject.tag == "Granade"){
+            Destroy(collision.gameObject);
+            gm.granades += 1;
+        }
    }
 }

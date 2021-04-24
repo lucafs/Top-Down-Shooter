@@ -10,8 +10,6 @@ public class Jogar : MonoBehaviour
     public GameObject granadaPrefab;
 
     public float throwForce = 4f;
-    public int Granades = 3;
-
     private float counter;
     Animator animator;
     int reloadingValue;
@@ -31,16 +29,9 @@ public class Jogar : MonoBehaviour
 
         counter += Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire2") && Granades > 0){
-            Granades -= 1;
+        if (Input.GetButtonDown("Fire2") && gm.granades > 0){
+            gm.granades -= 1;
             throwG();
-
-        }
-        if (counter > 1 && Granades == 0)
-        {
-            animator.SetInteger("Reloading", 1);
-            Granades = 5;
-            counter = 0;
         }
             
     }
