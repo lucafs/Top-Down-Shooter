@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
             if (child.position.x < majorX) majorX = child.position.x;
             if (child.position.x < majorY) majorY = child.position.x;
         }
+
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
         MovimentoPlayer playerScript = jogador.GetComponent<MovimentoPlayer>();
         gm = GameManager.GetInstance();
@@ -39,11 +40,25 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnEnemies(int loopCount)
     {
+        GameObject jogador = GameObject.FindGameObjectWithTag("Player");
+
+        float playerXpositionRight = jogador.transform.position.x + 15;
+        float playerXpositionLeft = jogador.transform.position.x - 15;
+        float playerYpositionUp = jogador.transform.position.y + 15;
+        float playerYpositionDown = jogador.transform.position.y - 15;
+
         for (int i = 0; i < loopCount; i++)
         {
 
             spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
             spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            
+            while(spawnXindex <= playerXpositionRight && spawnXindex >= playerXpositionLeft || spawnYindex >= playerYpositionDown && spawnYindex <= playerYpositionUp)
+            {
+                spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+                spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            }
+
             while (spawnYindex <= minorY && spawnYindex >= majorY && spawnXindex <= minorX && spawnXindex >= majorX)
             {
                 spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);

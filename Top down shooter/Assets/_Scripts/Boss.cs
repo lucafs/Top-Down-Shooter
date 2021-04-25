@@ -17,6 +17,9 @@ public class Boss : MonoBehaviour
     public float angle;
     private int vidaBoss = 6;
 
+    public GameObject shotgun;
+    Vector2 posicaoDeSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,6 @@ public class Boss : MonoBehaviour
 
         if (Vector2.Distance(transform.position, alvo.position) > 9)
         {
-            Debug.Log(Vector2.Distance(transform.position, alvo.position));
             animator.SetInteger("Atking", 0);
             rb.MovePosition(transform.position - transform.up * velocidade * Time.deltaTime);
             RotateTowards(alvo.position);
@@ -42,7 +44,6 @@ public class Boss : MonoBehaviour
         if(Vector2.Distance(transform.position, alvo.position) < 9)
         {
             animator.SetInteger("Atking", 1);
-            Debug.Log(animator.GetInteger("Atking"));
             rb.MovePosition(transform.position - transform.up * velocidade * Time.deltaTime);
             RotateTowards(alvo.position);
         }
@@ -61,15 +62,40 @@ public class Boss : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && gm.shotgun == 0)
         {
             vidaBoss -= 1;
             if (vidaBoss <= 0)
             {
+                float spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+                float spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+
+                posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
+
+                GameObject shotgunInstance = Instantiate(shotgun, posicaoDeSpawn, Quaternion.identity);
+                
                 gm.pontos += 5;
                 Destroy(gameObject);
 
-                BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);
+                Instantiate(bloodObject, transform.position, Quaternion.identity);
+            }
+        }
+        else if (collision.gameObject.tag == "Bullet" && gm.shotgun == 1)
+        {
+            vidaBoss -= 2;
+            if (vidaBoss <= 0)
+            {
+                float spawnYindex = Random.Range(new Vector2(0, -70).y, new Vector2(0, -30).y);
+                float spawnXindex = Random.Range(new Vector2(-150, 0).x, new Vector2(-60, 0).x);
+
+                posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
+
+                GameObject shotgunInstance = Instantiate(shotgun, posicaoDeSpawn, Quaternion.identity);
+
+                gm.pontos += 5;
+                Destroy(gameObject);
+
+                Instantiate(bloodObject, transform.position, Quaternion.identity);
             }
         }
     }

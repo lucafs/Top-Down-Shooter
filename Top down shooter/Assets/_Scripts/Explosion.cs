@@ -51,7 +51,12 @@ public class Explosion : MonoBehaviour
                 gm.pontos += 1;
                 objDestroyed.GetComponent<Enemy>().Morrer();}
             else if(objDestroyed.tag == "Caixa"){
-            Destroy(objDestroyed);
+                Destroy(objDestroyed);
+            }
+            else if(objDestroyed.tag == "Boss")
+            {
+                gm.pontos += 6;
+                Destroy(objDestroyed);
             }
         }
         while(!this.animator.GetCurrentAnimatorStateInfo(0).IsName("explosion")){

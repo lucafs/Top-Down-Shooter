@@ -11,6 +11,8 @@ public class GameManager
     public int hordes;
     public int granades;
     public int reset = 0;
+    public int shotgun;
+    public int shotgunBullets = 0;
     public Vector2 spawn;
     public int difCount;
     private static GameManager _instance;
@@ -32,7 +34,9 @@ public class GameManager
         vidas = 4;
         pontos = 0;
         hordes = 0;
+        shotgunBullets = 0;
         granades = 1;
+        shotgun = 0;
         gameState = GameState.MENU;
     }
 
@@ -51,6 +55,8 @@ public class GameManager
         difCount = 0;
         vidas = 4;
         hordes = 0;
+        shotgun = 0;
+        shotgunBullets = 0;
         pontos = 0;
         granades = 1;
     }

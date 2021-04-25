@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac18342023b1964c81531661864a01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1513317100522740144, guid: e81ac9c0fcbff5342b61bb90a6102190, type: 3}
+  enemy: {fileID: 3770113452424174150, guid: 786f211dab90f514eb49f0bea6b073a3, type: 3}
   Boss: {fileID: 3770113452424174150, guid: 786f211dab90f514eb49f0bea6b073a3, type: 3}
   barreiras: {fileID: 480376886}
 --- !u!4 &140615476

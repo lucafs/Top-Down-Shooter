@@ -68,7 +68,7 @@ public class MovimentoPlayer : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss")
         {
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("taking_damage"))
             {
@@ -98,6 +98,12 @@ public class MovimentoPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Granade"){
             Destroy(collision.gameObject);
             gm.granades += 1;
+        }
+        if (collision.gameObject.tag == "Shotgun")
+        {
+            Destroy(collision.gameObject);
+            gm.shotgunBullets = 20;
+            gm.shotgun = 1;
         }
    }
 }
