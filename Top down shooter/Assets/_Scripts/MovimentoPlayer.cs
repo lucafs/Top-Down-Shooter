@@ -16,6 +16,9 @@ public class MovimentoPlayer : MonoBehaviour
     public float angle;
     public Vector2 spawn;
     public AudioClip damageSFX;
+    public GameObject floatingTextlife;
+    public GameObject floatingTextGranade;
+
 
     Animator animator;
     // public Camera cam; 
@@ -88,7 +91,7 @@ public class MovimentoPlayer : MonoBehaviour
    {
         if (collision.gameObject.tag == "Heart"){
             if(gm.vidas == 4){
-                Debug.Log("Vidas cheias");        
+                Instantiate(floatingTextlife,transform.position,Quaternion.identity);      
             }
             else{
                 Destroy(collision.gameObject);
@@ -96,8 +99,14 @@ public class MovimentoPlayer : MonoBehaviour
             }
         }
         if (collision.gameObject.tag == "Granade"){
-            Destroy(collision.gameObject);
-            gm.granades += 1;
+            if(gm.granades == 5){
+                Instantiate(floatingTextGranade,transform.position,Quaternion.identity);      
+
+            }
+            else{
+                Destroy(collision.gameObject);
+                gm.granades += 1;
+            }
         }
         if (collision.gameObject.tag == "Shotgun")
         {

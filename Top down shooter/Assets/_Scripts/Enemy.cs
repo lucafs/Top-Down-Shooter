@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject bloodObject;
     public GameObject heart;
     public GameObject granade;
+    public GameObject boost;
 
 
     // Start is called before the first frame update
@@ -68,13 +69,19 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             random = Random.Range(0,100);
+            if(random < 16){
+                if(random < 6){
+                    GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);
+                }
+                else if(random < 9){
+                    GameObject Boost = Instantiate(boost, transform.position,Quaternion.identity);
 
-            if(random < 5){
-                GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);
-            }
-            if(random > 95){
-                GameObject Granade = Instantiate(granade, transform.position,Quaternion.identity);
-            }
+                }
+                else{
+                    GameObject Granade = Instantiate(granade, transform.position,Quaternion.identity);
+
+                }
+            } 
             gm.pontos += 1;
             Destroy(gameObject);
             GameObject BloodInstance = Instantiate(bloodObject, transform.position, Quaternion.identity);

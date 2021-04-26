@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac18342023b1964c81531661864a01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3770113452424174150, guid: 786f211dab90f514eb49f0bea6b073a3, type: 3}
+  enemy: {fileID: 1513317100522740144, guid: e81ac9c0fcbff5342b61bb90a6102190, type: 3}
   Boss: {fileID: 3770113452424174150, guid: 786f211dab90f514eb49f0bea6b073a3, type: 3}
   barreiras: {fileID: 480376886}
 --- !u!4 &140615476
@@ -1660,7 +1660,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3802285285144062478, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2032,7 +2032,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b232877e3b218ec4da045ae14dbc10e6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.865
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3018,7 +3018,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3802285285144062478, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5151,7 +5151,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -953209360917107931, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6128,7 +6128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6225,7 +6225,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3802285285144062478, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6307,7 +6307,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3802285285144062478, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6779,7 +6779,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3802285285144062478, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7930,7 +7930,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82b19a56e8cae714480ad9fbd7b573b4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.47
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8097,7 +8097,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -953209360917107931, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9133,7 +9133,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1806575176867759541, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9803,7 +9803,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1806575176867759541, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10554,7 +10554,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -953209360917107931, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10670,7 +10670,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1806575176867759541, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12077,7 +12077,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1806575176867759541, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12660,7 +12660,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1806575176867759541, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12919,7 +12919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13159,7 +13159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -953209360917107931, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13918,6 +13918,10 @@ MonoBehaviour:
   angle: 0
   spawn: {x: 0, y: 0}
   damageSFX: {fileID: 8300000, guid: 98a856428b128134e82a50e8bc5605da, type: 3}
+  floatingTextlife: {fileID: 8378742329645287571, guid: acfa28c4e4e0a1349af8661a42ae6599,
+    type: 3}
+  floatingTextGranade: {fileID: 8378742329645287571, guid: b90c10cb955299f419386acf6c4373c2,
+    type: 3}
 --- !u!50 &2090933826
 Rigidbody2D:
   serializedVersion: 4
@@ -14125,7 +14129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -953209360917107931, guid: da87979ffec33b5499ebe1cf38945db3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

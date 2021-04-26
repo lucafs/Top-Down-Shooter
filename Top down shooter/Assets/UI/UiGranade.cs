@@ -14,7 +14,7 @@ public class UiGranade : MonoBehaviour
    
    void Update()
    {
-       textComp.text = $"Granades:{gm.granades}";
+       textComp.text = $"Granades: {gm.granades}";
    }
 
 }
