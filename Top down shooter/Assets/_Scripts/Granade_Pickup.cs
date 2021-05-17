@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Granade_Pickup : MonoBehaviour
 {
+    float destroyTime = 10f;
     GameManager gm;
     void Start()
     {
@@ -12,5 +13,7 @@ public class Granade_Pickup : MonoBehaviour
     }
     void Update(){
     if (gm.gameState != GameManager.GameState.GAME && gm.gameState != GameManager.GameState.PAUSE ) Destroy(gameObject);
+    Destroy(gameObject, destroyTime);
+
     }
 }

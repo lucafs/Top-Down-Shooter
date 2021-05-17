@@ -6,6 +6,7 @@ public class ShotgunPickUp : MonoBehaviour
 {
     GameManager gm;
 
+    float destroyTime = 10f;
     public GameObject shotgunObj;
     public int setShotgun = 0;
 
@@ -17,5 +18,7 @@ public class ShotgunPickUp : MonoBehaviour
     void Update()
     {
         if (gm.gameState != GameManager.GameState.GAME && gm.gameState != GameManager.GameState.PAUSE) Destroy(gameObject);
+        Destroy(gameObject, destroyTime);
+
     }
 }
