@@ -14,3 +14,5 @@ https://ansimuz.itch.io/explosion-animations-pack -> explosion
 https://unluckystudio.com/free-top-down-shooterplayer-sprites/ -> player
 
 Animated 2D Coins Allasstar asset store -> coins
+
+https://www.youtube.com/watch?v=joKG1QlYvsE -> doors
