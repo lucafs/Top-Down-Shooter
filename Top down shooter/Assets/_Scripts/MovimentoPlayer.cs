@@ -18,7 +18,7 @@ public class MovimentoPlayer : MonoBehaviour
     public AudioClip damageSFX;
     public GameObject floatingTextlife;
     public GameObject floatingTextGranade;
-
+    public GameObject messageText;
 
     Animator animator;
     // public Camera cam; 
@@ -27,7 +27,6 @@ public class MovimentoPlayer : MonoBehaviour
         animator = GetComponent<Animator>();
         gm = GameManager.GetInstance();
         gm.spawn = transform.position;
-
     }
 
     // Update is called once per frame
@@ -89,6 +88,10 @@ public class MovimentoPlayer : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
    {
+        if (collision.gameObject.tag == "Door")
+        {
+            Instantiate(messageText, transform.position, Quaternion.identity);
+        }
         if (collision.gameObject.tag == "Heart"){
             if(gm.vidas == 4){
                 Instantiate(floatingTextlife,transform.position,Quaternion.identity);      
@@ -115,4 +118,5 @@ public class MovimentoPlayer : MonoBehaviour
             gm.shotgun = 1;
         }
    }
+
 }
