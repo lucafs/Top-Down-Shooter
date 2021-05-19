@@ -12,3 +12,5 @@ https://www.kenney.nl/assets/topdown-shooter -> map
 https://ansimuz.itch.io/explosion-animations-pack -> explosion
 
 https://unluckystudio.com/free-top-down-shooterplayer-sprites/ -> player
+
+Animated 2D Coins Allasstar asset store -> coins
