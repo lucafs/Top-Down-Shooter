@@ -16,9 +16,17 @@ public class MovimentoPlayer : MonoBehaviour
     public float angle;
     public Vector2 spawn;
     public AudioClip damageSFX;
+
+    public AudioClip dashCooldownSFX;
     public GameObject floatingTextlife;
     public GameObject floatingTextGranade;
     public GameObject messageText;
+
+ //Dash
+    public float dashVelocidade = 100000f;
+    bool isDashing;
+    float lastDashTime;
+    float dashDelay = 1.2f;
 
     Animator animator;
     // public Camera cam; 
@@ -27,6 +35,7 @@ public class MovimentoPlayer : MonoBehaviour
         animator = GetComponent<Animator>();
         gm = GameManager.GetInstance();
         gm.spawn = transform.position;
+        lastDashTime = Time.time;
     }
 
     // Update is called once per frame
@@ -58,13 +67,31 @@ public class MovimentoPlayer : MonoBehaviour
         movimento.x = Input.GetAxisRaw("Horizontal");
         movimento.y = Input.GetAxisRaw("Vertical");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Dash esquerda
+        if(Input.GetKey(KeyCode.A) && Input.GetButtonDown("Jump")){
+            StartCoroutine(Dash(-1f,true));
+        }
+        //Dash direita
+        else if(Input.GetKey(KeyCode.D) && Input.GetButtonDown("Jump")){
+            StartCoroutine(Dash(1f,true));
+        }
+        //Dash cima
+        else if(Input.GetKey(KeyCode.W) && Input.GetButtonDown("Jump")){
+            StartCoroutine(Dash(1f,false));
+        }
+        //Dash baixo
+        else if(Input.GetKey(KeyCode.S) && Input.GetButtonDown("Jump")){
+            StartCoroutine(Dash(-1f,false));
+        }
     }
     
     void FixedUpdate(){
         if (gm.gameState != GameManager.GameState.GAME) return;
+        if(!isDashing){
         rb.MovePosition(rb.position + movimento * velocidade * Time.fixedDeltaTime);
+        }
         lookDir = mousePos - rb.position;
-        angle = Mathf.Atan2(lookDir.y,lookDir.x)* Mathf.Rad2Deg ;
+        angle = Mathf.Atan2(lookDir.y,lookDir.x)* Mathf.Rad2Deg;
         rb.rotation = angle;
     }
 
@@ -119,4 +146,24 @@ public class MovimentoPlayer : MonoBehaviour
         }
    }
 
+   IEnumerator Dash(float direction,bool horizontal){
+       if(Time.time - lastDashTime > dashDelay ){
+            isDashing = true;
+            if(horizontal){
+                    rb.velocity = new Vector2(dashVelocidade*direction,0f);
+                    rb.AddForce(new Vector2(2f*dashVelocidade*direction,0f),ForceMode2D.Impulse);
+            }
+            else{
+                    rb.velocity = new Vector2(0f,dashVelocidade*direction);
+                    rb.AddForce(new Vector2(0f,2f*dashVelocidade*direction),ForceMode2D.Impulse);
+
+            }
+            yield return new WaitForSeconds(0.2f);
+            isDashing = false;
+            lastDashTime = Time.time;
+       }
+       else{
+            AudioManager.PlaySFX(dashCooldownSFX);
+       }
+   }
 }

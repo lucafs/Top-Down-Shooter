@@ -73,19 +73,14 @@ public class Enemy : MonoBehaviour
                 if(random < 6){
                     GameObject Heart = Instantiate(heart, transform.position,Quaternion.identity);
                 }
-                else if (random < 15)
-                {
-                    gm.coins += 50;
-                }
                 else if(random < 9){
                     GameObject Boost = Instantiate(boost, transform.position,Quaternion.identity);
-
                 }
                 else{
                     GameObject Granade = Instantiate(granade, transform.position,Quaternion.identity);
-
                 }
-            } 
+            }
+            gm.coins +=10;
             gm.pontos += 1;
             
             Destroy(gameObject);

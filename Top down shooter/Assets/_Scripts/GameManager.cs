@@ -58,9 +58,9 @@ public class GameManager
         vidas = 4;
         hordes = 0;
         shotgun = 0;
-        coins = 0;
+        coins = 1000;
         shotgunBullets = 0;
         pontos = 0;
-        granades = 1;
+        granades = 20;
     }
 }

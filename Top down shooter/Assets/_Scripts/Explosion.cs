@@ -15,6 +15,10 @@ public class Explosion : MonoBehaviour
     Animator animator;
     public Rigidbody2D granadeRB;
 
+    public GameObject heart;
+    public GameObject granade;
+    public GameObject boost;
+
         // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +31,11 @@ public class Explosion : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-{
+    void Update(){
         targetTime -= Time.deltaTime;
 
         if (targetTime <= 0.0f){
             AudioManager.PlaySFX(explosionSFX);
-
             explode();
 
         }
@@ -51,6 +53,16 @@ public class Explosion : MonoBehaviour
                 gm.pontos += 1;
                 objDestroyed.GetComponent<Enemy>().Morrer();}
             else if(objDestroyed.tag == "Caixa"){
+                int random = Random.Range(0,100);
+                if(random < 33){
+                    GameObject Heart = Instantiate(heart, objDestroyed.transform.position,Quaternion.identity);
+                }
+                else if(random < 66){
+                    GameObject Boost = Instantiate(boost, objDestroyed.transform.position,Quaternion.identity);
+                }
+                else{
+                    GameObject Granade = Instantiate(granade, objDestroyed.transform.position,Quaternion.identity);
+                }
                 Destroy(objDestroyed);
             }
             else if(objDestroyed.tag == "Boss")
@@ -69,4 +81,5 @@ public class Explosion : MonoBehaviour
         Gizmos.color =  Color.red;
         Gizmos.DrawWireSphere(transform.position,fieldoImpact);
     }
+
 }

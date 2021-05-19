@@ -143,6 +143,9 @@ MonoBehaviour:
     m_Bits: 256
   explosionSFX: {fileID: 8300000, guid: dea032fefa50e204b824626dca73cd43, type: 3}
   granadeRB: {fileID: 5848815111268538566}
+  heart: {fileID: 4157827940727502423, guid: e5fc95b2b434cd345adb6011b19546a9, type: 3}
+  granade: {fileID: 9171741533956735191, guid: c64221b4c9435034293a99ef5dc56d1c, type: 3}
+  boost: {fileID: 2488731008925735971, guid: 10221a3a1b8db3e4ebd3e0a10c14bc13, type: 3}
 --- !u!95 &8538924249390928086
 Animator:
   serializedVersion: 3
