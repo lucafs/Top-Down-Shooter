@@ -18,10 +18,23 @@ public class EnemySpawner : MonoBehaviour
     float minorY = 0f;
     float majorX = 0f;
     float majorY = 0f;
+    private int countFilhos;
+    private Transform[] spawnpoints;
+    private int spawnIndexRandom;
+    private Vector3 myNewVector;
 
     // Start is called before the first frame update
     void Start()
     {
+        countFilhos = transform.childCount;
+        
+        spawnpoints = new Transform[countFilhos];
+
+        for(int i=0; i < countFilhos; i++)
+        {
+            spawnpoints[i] = transform.GetChild(i);
+        }
+        
         foreach (Transform child in barreiras)
         {
             if (child.position.x < minorX) minorX = child.position.x ;
@@ -35,37 +48,40 @@ public class EnemySpawner : MonoBehaviour
         gm = GameManager.GetInstance();
         timeStamp = 25;
 
-        spawnEnemies(15);
+        spawnEnemies(50);
     }
 
     void spawnEnemies(int loopCount)
     {
+        
+
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
 
-        float playerXpositionRight = jogador.transform.position.x + 15;
-        float playerXpositionLeft = jogador.transform.position.x - 15;
-        float playerYpositionUp = jogador.transform.position.y + 15;
-        float playerYpositionDown = jogador.transform.position.y - 15;
+        //float playerXpositionRight = jogador.transform.position.x + 15;
+        //float playerXpositionLeft = jogador.transform.position.x - 15;
+        //float playerYpositionUp = jogador.transform.position.y + 15;
+        //float playerYpositionDown = jogador.transform.position.y - 15;
 
         for (int i = 0; i < loopCount; i++)
         {
+            spawnIndexRandom = Random.Range(0, countFilhos);
+            myNewVector = new Vector3(i/5, i/5, i/5);
+            //spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+            //spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
 
-            spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
-            spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
-            
-            while(spawnXindex <= playerXpositionRight && spawnXindex >= playerXpositionLeft || spawnYindex >= playerYpositionDown && spawnYindex <= playerYpositionUp)
-            {
-                spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
-                spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
-            }
+            //while(spawnXindex <= playerXpositionRight && spawnXindex >= playerXpositionLeft || spawnYindex >= playerYpositionDown && spawnYindex <= playerYpositionUp)
+            //{
+            //    spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+            //    spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            //}
 
-            while (spawnYindex <= minorY && spawnYindex >= majorY && spawnXindex <= minorX && spawnXindex >= majorX)
-            {
-                spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
-                spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
-            }
-            posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
-            Instantiate(enemy, posicaoDeSpawn, Quaternion.identity);
+            //while (spawnYindex <= minorY && spawnYindex >= majorY && spawnXindex <= minorX && spawnXindex >= majorX)
+            //{
+            //    spawnYindex = Random.Range(new Vector2(0, -45).y, new Vector2(0, 2).y);
+            //    spawnXindex = Random.Range(new Vector2(-90, 0).x, new Vector2(15, 0).x);
+            //}
+            //posicaoDeSpawn = new Vector2(spawnXindex + 10f, spawnYindex + 10f);
+            Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
 
 
         }

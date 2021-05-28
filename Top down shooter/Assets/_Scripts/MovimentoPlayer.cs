@@ -21,6 +21,7 @@ public class MovimentoPlayer : MonoBehaviour
     public GameObject floatingTextlife;
     public GameObject floatingTextGranade;
     public GameObject messageText;
+    private int is_trigger = 0;
 
  //Dash
     public float dashVelocidade = 100000f;
@@ -41,6 +42,11 @@ public class MovimentoPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            is_trigger = 1;
+        }
 
         if(gm.reset == 2){
             rb.MovePosition(spawn);
@@ -118,6 +124,13 @@ public class MovimentoPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Door")
         {
             Instantiate(messageText, transform.position, Quaternion.identity);
+
+            if(gm.coins >= 500 && is_trigger == 1)
+            {
+                Destroy(GameObject.FindWithTag("Door"));
+                gm.coins -= 500;
+                is_trigger = 0;
+            }
         }
         if (collision.gameObject.tag == "Heart"){
             if(gm.vidas == 4){
