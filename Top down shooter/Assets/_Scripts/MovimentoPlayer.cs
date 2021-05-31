@@ -123,11 +123,12 @@ public class MovimentoPlayer : MonoBehaviour
    {
         if (collision.gameObject.tag == "Door")
         {
+            Debug.Log("entrou");
             Instantiate(messageText, transform.position, Quaternion.identity);
 
             if(gm.coins >= 500 && is_trigger == 1)
             {
-                Destroy(GameObject.FindWithTag("Door"));
+                Destroy(collision.gameObject);
                 gm.coins -= 500;
                 is_trigger = 0;
             }
