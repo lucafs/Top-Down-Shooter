@@ -12,6 +12,9 @@ TagManager:
   - Boss
   - Shotgun
   - Door
+  - animator
+  - Undefined
+  - gunSorted
   layers:
   - Default
   - TransparentFX
