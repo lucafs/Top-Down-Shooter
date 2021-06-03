@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     GameManager gm;
 
-    public float velocidade;
+    // public float velocidade;
     public Rigidbody2D rb;
     private Transform alvo;
     public Vector2 positionZ;
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
         if (Vector2.Distance(transform.position, alvo.position) > 0.5)
         {
-            rb.MovePosition(transform.position + transform.up * velocidade * Time.deltaTime);
+            // rb.MovePosition(transform.position + transform.up * velocidade * Time.deltaTime);
             RotateTowards(alvo.position);
         }
     }

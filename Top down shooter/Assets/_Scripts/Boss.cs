@@ -38,7 +38,7 @@ public class Boss : MonoBehaviour
         if (Vector2.Distance(transform.position, alvo.position) > 9)
         {
             animator.SetInteger("Atking", 0);
-            rb.MovePosition(transform.position - transform.up * velocidade * Time.deltaTime);
+            // rb.MovePosition(transform.position - transform.up * velocidade * Time.deltaTime);
             RotateTowards(alvo.position);
         }
         if(Vector2.Distance(transform.position, alvo.position) < 9)

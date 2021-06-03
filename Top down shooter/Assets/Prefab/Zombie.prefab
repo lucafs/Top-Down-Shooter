@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 5021046591626347146}
   - component: {fileID: 6666222677895300457}
   - component: {fileID: 7631699485825115409}
+  - component: {fileID: 467153021086378988}
+  - component: {fileID: 108179325518928512}
   m_Layer: 8
   m_Name: zombiebasic_0
   m_TagString: Enemy
@@ -149,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee8a042c3dffba40b42281e88e2eebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 5
   rb: {fileID: 0}
   positionZ: {x: 0, y: 0}
   dead: 0
@@ -176,3 +177,37 @@ CircleCollider2D:
   m_Offset: {x: -0.00449656, y: -0.11493077}
   serializedVersion: 2
   m_Radius: 0.19057268
+--- !u!114 &467153021086378988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513317100631948910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50571ef63ae3e15469f42f670b32d08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &108179325518928512
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513317100631948910}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.30500007
+  m_Speed: 4
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.6200001
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
