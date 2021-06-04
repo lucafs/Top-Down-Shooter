@@ -5,13 +5,16 @@ using UnityEngine;
 public class Atirar : MonoBehaviour
 {
     GameManager gm;
+    OtherManager om;
+
     public AudioClip shootSFX;
     public Transform arma;
     public GameObject tiroPrefab;
 
     public float bulletForce = 20f;
     public int Bullets = 5;
-
+    float delay_tiro = 1.3f;
+    float tempoDoReload;
     private float counter;
     Animator animator;
     int reloadingValue;
@@ -23,12 +26,15 @@ public class Atirar : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         gm = GameManager.GetInstance();
+        om = OtherManager.GetInstance();
+        tempoDoReload = Time.time + tempoDoReload;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gm.gameState != GameManager.GameState.GAME) return;
+        if(tempoDoReload - Time.time >= delay_tiro) return;
 
         reloadingValue = animator.GetInteger("Reloading");
 
@@ -61,7 +67,9 @@ public class Atirar : MonoBehaviour
         }
         if (counter > 1 && Bullets == 0 && gm.shotgun == 0)
         {
+            om.recarregando = true;
             animator.SetInteger("Reloading", 1);
+            tempoDoReload = Time.time;
             Bullets = 5;
             counter = 0;
         }
@@ -77,8 +85,6 @@ public class Atirar : MonoBehaviour
 
     void ShootShot()
     {
-        Debug.Log("Entrei");
-
         tiro = Instantiate(tiroPrefab, arma.position, arma.rotation);
         rb = tiro.GetComponent<Rigidbody2D>();
         rb.AddForce(-arma.up * bulletForce * 2, ForceMode2D.Impulse);

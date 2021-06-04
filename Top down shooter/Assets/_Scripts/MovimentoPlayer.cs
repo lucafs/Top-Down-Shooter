@@ -56,17 +56,6 @@ public class MovimentoPlayer : MonoBehaviour
             rb.rotation = angle;
             gm.reset = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gm.gameState == GameManager.GameState.GAME)
-            {
-                gm.ChangeState(GameManager.GameState.PAUSE);
-            }
-            else if (gm.gameState == GameManager.GameState.PAUSE)
-            {
-                gm.ChangeState(GameManager.GameState.GAME);
-            }
-        }
 
         if (gm.gameState != GameManager.GameState.GAME) return;
 
