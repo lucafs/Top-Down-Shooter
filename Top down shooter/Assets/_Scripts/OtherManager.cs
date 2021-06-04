@@ -31,3 +31,5 @@ public class OtherManager
 // respawnar porta
 // refazer posição player
 //arrumar a porra do spawner
+
+//ajustar 
