@@ -112,11 +112,13 @@ public class MovimentoPlayer : MonoBehaviour
    {
         if (collision.gameObject.tag == "Door")
         {
-            Debug.Log("entrou");
             Instantiate(messageText, transform.position, Quaternion.identity);
 
             if(gm.coins >= 500 && is_trigger == 1)
             {
+                Debug.Log(gameObject.transform.position);
+                gm.position_doors = gameObject.transform.position;
+                gm.level_setter += 1;
                 Destroy(collision.gameObject);
                 gm.coins -= 500;
                 is_trigger = 0;

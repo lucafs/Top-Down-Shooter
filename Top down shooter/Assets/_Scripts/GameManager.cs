@@ -16,9 +16,12 @@ public class GameManager
     public int coins = 0;
     public Vector2 spawn;
     public int difCount;
+    public Vector3 position_doors;
     private static GameManager _instance;
     public delegate void ChangeStateDelegate();
     public static ChangeStateDelegate changeStateDelegate;
+
+    public int level_setter;
 
     public static GameManager GetInstance()
     {
@@ -36,9 +39,11 @@ public class GameManager
         pontos = 0;
         hordes = 0;
         coins = 0;
+        position_doors = new Vector3(0, 0, 0);
         shotgunBullets = 0;
         granades = 1;
         shotgun = 0;
+        level_setter = 0;
         gameState = GameState.MENU;
     }
 
@@ -61,6 +66,8 @@ public class GameManager
         coins = 1000;
         shotgunBullets = 0;
         pontos = 0;
+        level_setter = 0;
         granades = 20;
+        position_doors = new Vector3(0, 0, 0);
     }
 }
