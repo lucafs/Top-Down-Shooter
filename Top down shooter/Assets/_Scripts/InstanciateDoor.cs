@@ -17,7 +17,7 @@ public class InstanciateDoor : MonoBehaviour
 
     void Update()
     {
-        if (gm.reset == 1)
+        if (gm.reset == 1 || gm.is_start == 1)
         {
             countFilhos = transform.childCount;
 
@@ -32,7 +32,7 @@ public class InstanciateDoor : MonoBehaviour
             {
                 Instantiate(portas, spawnpoints[i].position, Quaternion.identity);
             }
-
+            gm.is_start = 0;
             gm.reset = 0;
         }
     }

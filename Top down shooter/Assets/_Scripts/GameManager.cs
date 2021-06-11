@@ -14,6 +14,7 @@ public class GameManager
     public int shotgun;
     public int shotgunBullets = 0;
     public int coins = 0;
+    public int is_start;
     public Vector2 spawn;
     public int difCount;
     public Vector3 position_doors;
@@ -38,6 +39,7 @@ public class GameManager
         vidas = 4;
         reset = 0;
         pontos = 0;
+        is_start = 1;
         hordes = 0;
         coins = 0;
         position_doors = new Vector3(0, 0, 0);
@@ -66,6 +68,7 @@ public class GameManager
         shotgun = 0;
         coins = 1000;
         shotgunBullets = 0;
+        is_start = 0;
         pontos = 0;
         level_setter = 0;
         granades = 20;
