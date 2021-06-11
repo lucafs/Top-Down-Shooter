@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -55,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnEnemies(int loopCount)
     {
-        
+
 
         GameObject jogador = GameObject.FindGameObjectWithTag("Player");
 
@@ -64,20 +66,25 @@ public class EnemySpawner : MonoBehaviour
         //float playerYpositionUp = jogador.transform.position.y + 15;
         //float playerYpositionDown = jogador.transform.position.y - 15;
 
+        Debug.Log(gm.level_setter);
+
         for (int i = 0; i < loopCount; i++)
         {
+
+
             if (gm.level_setter == 0)
             {
                 spawnIndexRandom = Random.Range(0, 2);
                 myNewVector = new Vector3(i / 5, i / 5, i / 5);
-                
+
                 Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
             }
-            
+
             if (gm.level_setter == 1 && gm.position_doors.x > 25.0f && gm.position_doors.x < 35.0f && gm.position_doors.y > 8.0f && gm.position_doors.y < 13.0f)
             {
-                array_local = new  int[] { 1, 2, 3, 4};
-       
+                array_local = new int[] { 0, 1, 2, 3, 4 };
+
                 spawnIndexRandom = Random.Range(0, 4);
 
                 myNewVector = new Vector3(i / 5, i / 5, i / 5);
@@ -88,14 +95,14 @@ public class EnemySpawner : MonoBehaviour
 
             if (gm.level_setter == 1 && gm.position_doors.x < -70.0f && gm.position_doors.x > -95.0f && gm.position_doors.y > 6.0f && gm.position_doors.y < 15.0f)
             {
-                array_local = new int[] { 0, 1, 2, 5};
-                
+                array_local = new int[] { 0, 1, 2, 5 };
+
                 spawnIndexRandom = Random.Range(0, 4);
                 myNewVector = new Vector3(i / 5, i / 5, i / 5);
                 spawnIndexRandom = array_local[spawnIndexRandom];
 
                 Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
-                
+
             }
 
             if (gm.level_setter == 1 && gm.position_doors.x < -70.0f && gm.position_doors.x > -95.0f && gm.position_doors.y > -50.0f && gm.position_doors.y < -20.0f)
@@ -107,17 +114,94 @@ public class EnemySpawner : MonoBehaviour
                 spawnIndexRandom = array_local[spawnIndexRandom];
 
                 Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
-
             }
+
 
             if (gm.level_setter == 2 && gm.position_doors.x > 25.0f && gm.position_doors.x < 35.0f && gm.position_doors.y > 8.0f && gm.position_doors.y < 13.0f)
             {
-                
+                int[] local = new int[] { 3, 4 };
+
+                array_local = array_local.Concat(local).ToArray();
+
+                spawnIndexRandom = Random.Range(0, array_local.Length);
+                myNewVector = new Vector3(i / 5, i / 5, i / 5);
+                spawnIndexRandom = array_local[spawnIndexRandom];
+
+                Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
             }
 
+            if (gm.level_setter == 2 && gm.position_doors.x < -70.0f && gm.position_doors.x > -95.0f && gm.position_doors.y > 6.0f && gm.position_doors.y < 15.0f)
+            {
+                int[] local = new int[] { 5 };
+
+                array_local = array_local.Concat(local).ToArray();
+
+                spawnIndexRandom = Random.Range(0, array_local.Length);
+                myNewVector = new Vector3(i / 5, i / 5, i / 5);
+                spawnIndexRandom = array_local[spawnIndexRandom];
+
+                Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
+            }
+
+            if (gm.level_setter == 2 && gm.position_doors.x < -70.0f && gm.position_doors.x > -95.0f && gm.position_doors.y > -50.0f && gm.position_doors.y < -20.0f)
+            {
+                int[] local = new int[] { 6, 7, 8 };
+
+                array_local = array_local.Concat(local).ToArray();
+
+                spawnIndexRandom = Random.Range(0, array_local.Length);
+                myNewVector = new Vector3(i / 5, i / 5, i / 5);
+                spawnIndexRandom = array_local[spawnIndexRandom];
+
+                Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
+            }
+
+            if (gm.level_setter == 3 && gm.position_doors.x > 25.0f && gm.position_doors.x < 35.0f && gm.position_doors.y > 8.0f && gm.position_doors.y < 13.0f)
+            {
+                int[] local = new int[] { 3, 4 };
+
+                array_local = array_local.Concat(local).ToArray();
+
+                spawnIndexRandom = Random.Range(0, array_local.Length);
+                myNewVector = new Vector3(i / 5, i / 5, i / 5);
+                spawnIndexRandom = array_local[spawnIndexRandom];
+
+                Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
+            }
+
+            if (gm.level_setter == 3 && gm.position_doors.x < -70.0f && gm.position_doors.x > -95.0f && gm.position_doors.y > 6.0f && gm.position_doors.y < 15.0f)
+            {
+                int[] local = new int[] { 5 };
+
+                array_local = array_local.Concat(local).ToArray();
+
+                spawnIndexRandom = Random.Range(0, array_local.Length);
+                myNewVector = new Vector3(i / 5, i / 5, i / 5);
+                spawnIndexRandom = array_local[spawnIndexRandom];
+
+                Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
+            }
+
+            if (gm.level_setter == 3 && gm.position_doors.x < -70.0f && gm.position_doors.x > -95.0f && gm.position_doors.y > -50.0f && gm.position_doors.y < -20.0f)
+            {
+                int[] local = new int[] { 6, 7, 8 };
+
+                array_local = array_local.Concat(local).ToArray();
+
+                spawnIndexRandom = Random.Range(0, array_local.Length);
+                myNewVector = new Vector3(i / 5, i / 5, i / 5);
+                spawnIndexRandom = array_local[spawnIndexRandom];
+
+                Instantiate(enemy, spawnpoints[spawnIndexRandom].position + myNewVector, Quaternion.identity);
+
+            }
         }
     }
-
     void spawnBoss(int loopCount)
     {
         for (int i = 0; i < loopCount; i++)

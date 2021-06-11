@@ -10,7 +10,7 @@ public class GameManager
     public int pontos;
     public int hordes;
     public int granades;
-    public int reset = 0;
+    public int reset;
     public int shotgun;
     public int shotgunBullets = 0;
     public int coins = 0;
@@ -36,6 +36,7 @@ public class GameManager
     {
         difCount = 0;
         vidas = 4;
+        reset = 0;
         pontos = 0;
         hordes = 0;
         coins = 0;
