@@ -6,6 +6,7 @@ public class OtherManager
 {
     public bool recarregando;
     private static OtherManager _instance;
+    public int altarCount = 0;
 
 
 
@@ -21,6 +22,7 @@ public class OtherManager
     }
     private OtherManager()
     {
+        altarCount = 0;
         recarregando = false;
     }
 }

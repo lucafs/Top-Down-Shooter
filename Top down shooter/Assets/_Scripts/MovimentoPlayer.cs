@@ -16,7 +16,8 @@ public class MovimentoPlayer : MonoBehaviour
     public float angle;
     public Vector2 spawn;
     public AudioClip damageSFX;
-
+    OtherManager om;
+    bool AltarPower = false;
     public AudioClip dashCooldownSFX;
     public GameObject floatingTextlife;
     public GameObject floatingTextGranade;
@@ -33,6 +34,7 @@ public class MovimentoPlayer : MonoBehaviour
     // public Camera cam; 
     void Start()
     {
+        om = OtherManager.GetInstance();
         animator = GetComponent<Animator>();
         gm = GameManager.GetInstance();
         gm.spawn = transform.position;
@@ -43,6 +45,14 @@ public class MovimentoPlayer : MonoBehaviour
     void Update()
     {
 
+        if(om.altarCount > 5){
+            AltarPower = true;
+            om.altarCount -= 6;
+        }
+        if(AltarPower){
+            velocidade =velocidade*1.5f;
+            AltarPower =false;
+        }
         if (Input.GetKeyDown(KeyCode.G))
         {
             is_trigger = 1;

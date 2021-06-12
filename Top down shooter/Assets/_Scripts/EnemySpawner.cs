@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
         gm = GameManager.GetInstance();
         timeStamp = 25;
 
-        spawnEnemies(50);
+        spawnEnemies(25);
     }
 
     void spawnEnemies(int loopCount)
@@ -225,7 +225,7 @@ public class EnemySpawner : MonoBehaviour
         if (gm.gameState != GameManager.GameState.GAME) return;
         if (gm.reset == 1 )
         {
-            spawnEnemies(50);
+            spawnEnemies(25);
             timeStamp = 25;
             gm.reset++;
 
@@ -242,14 +242,14 @@ public class EnemySpawner : MonoBehaviour
                 gm.difCount = 1;
                 timeStamp = 20;
                 gm.hordes += 1;
-                spawnEnemies(60);
+                spawnEnemies(28);
             }
             if (timeStamp == 0 && gm.difCount == 1)
             {
                 gm.difCount = 2;
                 timeStamp = 15;
                 gm.hordes += 1;
-                spawnEnemies(70);
+                spawnEnemies(31);
             }
             if (timeStamp == 0 && gm.difCount == 2)
             {
@@ -257,7 +257,7 @@ public class EnemySpawner : MonoBehaviour
                 timeStamp = 10;
                 gm.hordes += 1;
                 countBoss += 1;
-                spawnEnemies(80);
+                spawnEnemies(40);
                 spawnBoss(countBoss);
             }
             contadorSegundos = 0;
