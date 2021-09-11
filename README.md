@@ -1,18 +1,22 @@
 # Top-Down-Shooter
-Projeto de Jogos
 
-https://tokkatrain.itch.io/top-down-basic-set -> arte
+```
+Game created in unity with the top down shotter style and round/horde gameplay.
+```
 
-https://freesfx.co.uk/sfx -> audio
+![Game Image](https://i.imgur.com/6ZxfWzp.png)
 
-https://cainos.itch.io/pixel-art-top-down-basic -> map
 
-https://www.kenney.nl/assets/topdown-shooter -> map
+## How do I play?
 
-https://ansimuz.itch.io/explosion-animations-pack -> explosion
+To play the game download the zip [**here**](https://lucafs.itch.io/topdownshooterfinal) and open the Top down shooter exec file.
+## Used assets and tutorial links    
 
-https://unluckystudio.com/free-top-down-shooterplayer-sprites/ -> player
-
-Animated 2D Coins Allasstar asset store -> coins
-
-https://www.youtube.com/watch?v=joKG1QlYvsE -> doors
+[**ART**](https://tokkatrain.itch.io/top-down-basic-set), 
+[**AUDIO**](https://freesfx.co.uk/sfx), 
+[**MAP**](https://cainos.itch.io/pixel-art-top-down-basic), 
+[**MAP**](https://www.kenney.nl/assets/topdown-shooter), 
+[**EXPLOSION**](https://ansimuz.itch.io/explosion-animations-pack ), 
+[**PLAYER**](https://unluckystudio.com/free-top-down-shooterplayer-sprites/), 
+[**DOORS**](
+https://www.youtube.com/watch?v=joKG1QlYvsE ).
